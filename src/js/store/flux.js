@@ -19,7 +19,7 @@ const getState = ({ getStore, setStore }) => {
 					.then(function(responseAsJson) {
 						// Do stuff with the JSON
 						console.log("responseAsJson", responseAsJson);
-						setStore({ contacts: responseAsJson.results });
+						setStore({ contacts: responseAsJson });
 					})
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
