@@ -12,7 +12,7 @@ export const ContactCard = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<li className="list-group-item">
+		<li key={props.id} className="list-group-item">
 			<div className="row w-100">
 				<div className="col-12 col-sm-6 col-md-3 px-0">
 					<img src={MikePhoto} alt="Mike Anamendolla" className="rounded-circle mx-auto d-block img-fluid" />
@@ -58,7 +58,8 @@ export const ContactCard = props => {
  **/
 ContactCard.propTypes = {
 	history: PropTypes.object,
-	onDelete: PropTypes.func
+	onDelete: PropTypes.func,
+	id: PropTypes.string
 };
 
 /**
