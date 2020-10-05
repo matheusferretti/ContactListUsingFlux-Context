@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
@@ -10,6 +10,11 @@ export const ContactCard = props => {
 	});
 
 	const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		var currentContact = store.contacts.filter(contact => contact.id == props.id);
+		setState({ currentContact });
+	}, []);
 
 	return (
 		<li key={props.id} className="list-group-item">
