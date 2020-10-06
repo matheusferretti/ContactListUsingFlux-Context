@@ -24,6 +24,26 @@ const getState = ({ getStore, setStore }) => {
 					.catch(function(error) {
 						console.log("Looks like there was a problem: \n", error);
 					});
+			},
+			addContact: (name, email, phone, address) => {
+				fetch("https://assets.breatheco.de/apis/fake/contact/", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						agenda_slug: "Matheus_FerrettiMonteiro",
+						full_name: name,
+						email: email,
+						phone: phone,
+						address: address
+					})
+				})
+					.then(response => response.json())
+					.then(() => {
+						fetch("https://assets.breatheco.de/apis/fake/contact/agenda/Matheus_FerrettiMonteiro")
+							.then(response => response.json())
+							.then(data => setStore({ contacts: data }));
+						console.log("created");
+					});
 			}
 		}
 	};
