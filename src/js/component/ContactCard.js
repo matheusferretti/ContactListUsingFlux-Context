@@ -21,9 +21,11 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<button className="btn">
-							<i className="fas fa-pencil-alt mr-3" />
-						</button>
+						<Link to="edit/:id">
+                            <button className="btn">
+                                <i className="fas fa-pencil-alt mr-3" />
+                            </button>
+                        </Link>
 						<button className="btn" onClick={() => actions.deleteContact(props.id)}>
 							<i className="fas fa-trash-alt" />
 						</button>
