@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
 import { Context } from "../store/appContext";
@@ -21,11 +21,17 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<Link to="edit/:id">
-                            <button className="btn">
-                                <i className="fas fa-pencil-alt mr-3" />
-                            </button>
-                        </Link>
+						<Link
+							to={{
+								pathname: "edit/:id",
+								aboutProps: {
+									contact: currentContact
+								}
+							}}>
+							<button className="btn">
+								<i className="fas fa-pencil-alt mr-3" />
+							</button>
+						</Link>
 						<button className="btn" onClick={() => actions.deleteContact(props.id)}>
 							<i className="fas fa-trash-alt" />
 						</button>
