@@ -25,7 +25,7 @@ export const ContactCard = props => {
 							to={{
 								pathname: "edit/:id",
 								aboutProps: {
-									contact: currentContact
+									contact: currentContact[0]
 								}
 							}}>
 							<button className="btn">
