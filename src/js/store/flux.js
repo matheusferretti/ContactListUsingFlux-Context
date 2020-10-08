@@ -75,7 +75,7 @@ const getState = ({ getStore, setStore }) => {
 						fetch("https://assets.breatheco.de/apis/fake/contact/agenda/Matheus_FerrettiMonteiro")
 							.then(response => response.json())
 							.then(data => setStore({ contacts: data }));
-						console.log("created");
+						console.log("Edited");
 					});
 			}
 		}
