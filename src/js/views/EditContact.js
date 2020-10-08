@@ -8,7 +8,8 @@ export const EditContact = props => {
 		name: props.location.aboutProps.contact.full_name,
 		email: props.location.aboutProps.contact.email,
 		phone: props.location.aboutProps.contact.phone,
-		address: props.location.aboutProps.contact.address
+		address: props.location.aboutProps.contact.address,
+		id: props.location.aboutProps.contact.id
 	});
 
 	const { store, actions } = useContext(Context);
@@ -64,7 +65,13 @@ export const EditContact = props => {
 					<Link to="/">
 						<button
 							onClick={() =>
-								actions.addContact(contact.name, contact.email, contact.phone, contact.address)
+								actions.editContact(
+									contact.name,
+									contact.email,
+									contact.phone,
+									contact.address,
+									contact.id
+								)
 							}
 							type="button"
 							className="btn btn-primary form-control">
